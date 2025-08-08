@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="access">アクセス</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="rgba-secondary-color-dark rgba-primary-color-dark">
+
+    <header class="header">
+        <div class="header__logo" onclick="window.location.href='index.html'" data-translate-key="companyName">株式会社KAIBYAKU</div>
+        <div class="hamburger-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="hamburger-menu">
+            <ul>
+                <li><button id="business-content-link" data-translate-key="businessContent">事業内容</button>
+                    <ul class="accordion-menu" id="accordion-menu">
+                        <li><a href="aaa.html" data-translate-key="accordionShi">診断士</a></li>
+                        <li><a href="bbb.html" data-translate-key="accordionWeb">webマーケティング</a></li>
+                        <li><a href="ccc.html" data-translate-key="accordionCon">コンサルティング</a></li>
+                    </ul>
+                </li>
+                <li><a href="access.html" data-translate-key="access">アクセス</a></li>
+                <li><a href="greeting.html" data-translate-key="greeting">代表挨拶</a></li>
+                <li><a href="blog.html" data-translate-key="blog">ブログ</a></li>
+                <li><a href="contact.html" data-translate-key="contact">お問い合わせ</a></li>
+                <li><button id="lang-toggle" data-translate-key="english">English</button></li>
+                <li><button id="hamburger-close" data-translate-key="close">閉じる</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="access-section">
+        <iframe
+            class="access-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.559816827725!2d139.81057471526!3d35.71000698018788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ed0d122093b%3A0x6d11f67f000d603a!2z44CSMTMxLTAwNDUg5p2x5Llx6Z2Z6JWT5Yy65rGg5qW977yS77yQ77yR77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1678912345678!5m2!1sja!2sjp"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <p class="access-address" data-translate-key="addressText">〒131-0045 東京都墨田区押上１丁目１−２</p>
+    </section>
+
+    <a href="contact.html" class="contact-button" data-translate-key="contactButton">お問い合わせフォーム</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

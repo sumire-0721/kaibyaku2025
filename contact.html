@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="contact">お問い合わせ</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="rgba-secondary-color-dark rgba-primary-color-dark">
+
+    <header class="header">
+        <div class="header__logo" onclick="window.location.href='index.html'" data-translate-key="companyName">株式会社KAIBYAKU</div>
+        <div class="hamburger-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="hamburger-menu">
+            <ul>
+                <li><button id="business-content-link" data-translate-key="businessContent">事業内容</button>
+                    <ul class="accordion-menu" id="accordion-menu">
+                        <li><a href="aaa.html" data-translate-key="accordionShi">診断士</a></li>
+                        <li><a href="bbb.html" data-translate-key="accordionWeb">webマーケティング</a></li>
+                        <li><a href="ccc.html" data-translate-key="accordionCon">コンサルティング</a></li>
+                    </ul>
+                </li>
+                <li><a href="access.html" data-translate-key="access">アクセス</a></li>
+                <li><a href="greeting.html" data-translate-key="greeting">代表挨拶</a></li>
+                <li><a href="blog.html" data-translate-key="blog">ブログ</a></li>
+                <li><a href="contact.html" data-translate-key="contact">お問い合わせ</a></li>
+                <li><button id="lang-toggle" data-translate-key="english">English</button></li>
+                <li><button id="hamburger-close" data-translate-key="close">閉じる</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <h1 data-translate-key="contactTitle">お問い合わせ</h1>
+        <form id="contact-form">
+            <label for="contact-email" data-translate-key="contactEmailLabel">メールアドレスをご入力ください</label>
+            <input type="email" id="contact-email" name="email" placeholder="xxx.gmail.com" required data-translate-key="contactEmailPlaceholder">
+
+            <label for="contact-message" data-translate-key="contactContentPlaceholder">お問い合わせ内容をご入力ください</label>
+            <textarea id="contact-message" name="message" maxlength="1000" placeholder="お問い合わせ内容をご入力ください" required data-translate-key="contactContentPlaceholder"></textarea>
+            <p class="character-count" id="character-count">0/1000</p>
+
+            <button type="submit" data-translate-key="contactSendButton">送信</button>
+        </form>
+    </section>
+
+    <a href="contact.html" class="contact-button" data-translate-key="contactButton">お問い合わせフォーム</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

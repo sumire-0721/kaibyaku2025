@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="greeting">代表挨拶</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="rgba-secondary-color-dark rgba-primary-color-dark">
+
+    <header class="header">
+        <div class="header__logo" onclick="window.location.href='index.html'" data-translate-key="companyName">株式会社KAIBYAKU</div>
+        <div class="hamburger-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="hamburger-menu">
+            <ul>
+                <li><button id="business-content-link" data-translate-key="businessContent">事業内容</button>
+                    <ul class="accordion-menu" id="accordion-menu">
+                        <li><a href="aaa.html" data-translate-key="accordionShi">診断士</a></li>
+                        <li><a href="bbb.html" data-translate-key="accordionWeb">webマーケティング</a></li>
+                        <li><a href="ccc.html" data-translate-key="accordionCon">コンサルティング</a></li>
+                    </ul>
+                </li>
+                <li><a href="access.html" data-translate-key="access">アクセス</a></li>
+                <li><a href="greeting.html" data-translate-key="greeting">代表挨拶</a></li>
+                <li><a href="blog.html" data-translate-key="blog">ブログ</a></li>
+                <li><a href="contact.html" data-translate-key="contact">お問い合わせ</a></li>
+                <li><button id="lang-toggle" data-translate-key="english">English</button></li>
+                <li><button id="hamburger-close" data-translate-key="close">閉じる</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="greeting" class="greeting-section">
+        <h2 class="greeting-section__title" data-translate-key="greetingTitle1">ご挨拶</h2>
+        <p class="greeting-section__content" data-translate-key="greetingContent1">この度は株式会社KAIBYAKUのウェブサイトにお越しいただき、誠にありがとうございます。代表取締役の〇〇です。弊社は「全ての企業に可能性を」を理念に掲げ、中小企業の皆様の事業発展に貢献するため、日々邁進しております。激変する現代社会において、企業が直面する課題は多岐にわたります。私たちは、中小企業診断士、Webマーケティング、コンサルティングの３つの柱を通じて、お客様の潜在能力を最大限に引き出し、新たな未来を切り拓くお手伝いをさせていただきます。</p>
+    </section>
+
+    <section id="principles" class="greeting-section">
+        <h2 class="greeting-section__title" data-translate-key="greetingTitle2">行動指針</h2>
+        <div class="greeting-section__content" data-translate-key="greetingContent2">
+            <ul>
+                <li>**顧客第一主義**: お客様の課題を深く理解し、最適なソリューションを提供します。</li>
+                <li>**プロフェッショナリズム**: 常に専門知識とスキルを磨き、質の高いサービスを提供します。</li>
+                <li>**共創**: お客様と共に考え、共に汗を流し、共に成長することを目指します。</li>
+                <li>**革新**: 変化を恐れず、常に新しい価値創造に挑戦し続けます。</li>
+                <li>**社会貢献**: 地域社会の発展に寄与し、持続可能な社会の実現に貢献します。</li>
+            </ul>
+        </div>
+    </section>
+
+    <a href="contact.html" class="contact-button" data-translate-key="contactButton">お問い合わせフォーム</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

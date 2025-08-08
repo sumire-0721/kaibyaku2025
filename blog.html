@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="blog">ブログ</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="rgba-secondary-color-dark rgba-primary-color-dark">
+
+    <header class="header">
+        <div class="header__logo" onclick="window.location.href='index.html'" data-translate-key="companyName">株式会社KAIBYAKU</div>
+        <div class="hamburger-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="hamburger-menu">
+            <ul>
+                <li><button id="business-content-link" data-translate-key="businessContent">事業内容</button>
+                    <ul class="accordion-menu" id="accordion-menu">
+                        <li><a href="aaa.html" data-translate-key="accordionShi">診断士</a></li>
+                        <li><a href="bbb.html" data-translate-key="accordionWeb">webマーケティング</a></li>
+                        <li><a href="ccc.html" data-translate-key="accordionCon">コンサルティング</a></li>
+                    </ul>
+                </li>
+                <li><a href="access.html" data-translate-key="access">アクセス</a></li>
+                <li><a href="greeting.html" data-translate-key="greeting">代表挨拶</a></li>
+                <li><a href="blog.html" data-translate-key="blog">ブログ</a></li>
+                <li><a href="contact.html" data-translate-key="contact">お問い合わせ</a></li>
+                <li><button id="lang-toggle" data-translate-key="english">English</button></li>
+                <li><button id="hamburger-close" data-translate-key="close">閉じる</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blog-container">
+        <div class="blog-post-card">
+            <h2 data-translate-key="blogWebMarketing">Webマーケティング</h2>
+            <p data-translate-key="blogUpdate1">2025/07/17更新</p>
+        </div>
+        <div class="blog-post-card">
+            <h2 data-translate-key="blogShindanshi">中小企業診断士</h2>
+            <p data-translate-key="blogUpdate2">2025/06/28更新</p>
+        </div>
+        <div class="blog-post-card">
+            <h2 data-translate-key="blogLpSite">LP・サイト制作</h2>
+            <p data-translate-key="blogUpdate3">2025/05/08更新</p>
+        </div>
+    </section>
+
+    <a href="contact.html" class="contact-button" data-translate-key="contactButton">お問い合わせフォーム</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
