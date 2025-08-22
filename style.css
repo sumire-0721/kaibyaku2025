@@ -1,5 +1,6 @@
 :root {
-    --primary-color-light: #FFEB3B; /* 黄色 */
+    --primary-color-light: #fff065; /* 黄色 */
+    --primary-color-gray: #afafaf; /* グレー */
     --primary-color-dark: #fab300; /* 少し濃い黄色 */
     --secondary-color-light: #8BC34A; /* 緑色 */
     --secondary-color-dark: #689F38; /* 少し濃い緑色 */
@@ -18,7 +19,7 @@ body {
 }
 
 /* --- Loading Animation --- */
-#loading {
+/* #loading {
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +31,7 @@ body {
     align-items: center;
     z-index: 9999;
     flex-direction: column;
-}
+} */
 
 .loading-text {
     font-size: 3em;
@@ -83,8 +84,8 @@ body {
 }
 
 .hamburger-menu-icon {
-    width: 30px;
-    height: 25px;
+    width: 50px;
+    height: 42px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -114,9 +115,9 @@ body {
     position: fixed;
     top: 0;
     right: -100%; /* Hidden by default */
-    width: 100%;
+    width: 60%;
     height: 100%;
-    background-color: #689F38;
+    background-color: rgba(104, 159, 56, 0.92);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -176,12 +177,14 @@ body {
 }
 
 .accordion-menu {
+    width: 90%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
     background-color: rgba(var(--secondary-color-dark-rgb), 0.8);
     border-radius: 5px;
-    margin-top: 10px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .accordion-menu.open {
@@ -322,20 +325,20 @@ body {
 .fv-text-container {
     position: relative;
     z-index: 2;
-    text-align: center;
+    text-align: right;
     color: var(--text-color-light);
     display: flex; /* Use flexbox to easily order elements */
     flex-direction: column; /* Stack them vertically */
-    align-items: center; /* Center horizontally */
+    align-items: flex-end; /* Center horizontally */
     justify-content: center; /* Center vertically if container allows */
-    width: 90%; /* Ensure text container has a width */
-    max-width: 900px;
+    width: 100%; /* Ensure text container has a width */
+    max-width: 1200px;
 }
 
 /* New styles for animated elements */
 @keyframes slideInFromLeftNew {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(-150%);
         opacity: 0;
     }
     100% {
@@ -355,42 +358,31 @@ body {
     animation-delay: 0.7s; /* Slight delay for tagline */
     opacity: 0; /* Ensure hidden before animation */
     text-align: right;
-    text-indent: 33rem;
+    text-indent: 0;
 }
 
 .fv-sub-tagline-animated {
-    font-family: 'Shippori Mincho B1', serif; /* Stylish font */
+    font-family: 'Shippori Mincho B1', serif;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    font-size: 4.5em; /* Larger font size */
+    font-size: 5.85em;
     font-weight: 300;
     color: var(--primary-color-light);
-    margin-bottom: 10px; /* Space between tagline and title */
-    animation: slideInFromLeftNew 2.3s ease-out forwards; /* 3-second animation */
-    opacity: 0; /* Ensure hidden before animation */
-    line-height: 1.2; /* Adjust line height for multiline tagline */
-    /* text-align: left; */
-}
-
-.fv-sub-tagline-animated .line-1 {
-    display: inline-block;
-    font-size: 1em;
-    text-indent: -10rem;
-    text-align: left;
-}
-
-.fv-sub-tagline-animated .line-2 {
-    display: inline-block;
-    text-indent: 24rem;
+    margin-bottom: 10px;
+    animation: slideInFromLeftNew 2.3s ease-out forwards;
+    opacity: 0;
+    line-height: 1.2;
     text-align: right;
+    font-style: italic;
 }
 
-.fv-sub-tagline-animated .line-3 {
-    display: block; /* 新しい行をブロック要素として表示 */
-    font-size: 0.6em;
-    margin-top: 20px; /* 他の行との間隔 */
-    text-align: center; /* 中央に配置 */
+.white-text {
+    color: #ffffff;
+    font-size: 80px;
 }
 
+.fv-sub-tagline-animated span {
+    white-space: nowrap;
+}
 
 .index-services-section {
     padding: 80px 5%;
@@ -400,10 +392,74 @@ body {
 
 .index-services-grid {
     display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 50px;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* レスポンシブ対応 */
+}
+
+.service-card {
+    flex-basis: calc(33.333% - 14px); /* 3分割 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color-light); /* 文字色を白に */
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-color) 0px 5px 15px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* オーバーレイを追加して文字を見やすくする */
+    transition: background-color 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card:hover::before {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.service-card__content {
+    position: relative;
+    z-index: 2;
+}
+
+.service-card__title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.service-card__text {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.service-card__link {
+    display: inline-block;
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-dark);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.service-card__link:hover {
+    background-color: var(--primary-color-light);
 }
 
 .index-service-item {
@@ -411,7 +467,7 @@ body {
     flex-direction: column; /* 子要素を縦に並べる */
     flex: 1;
     min-width: 280px;
-    max-width: 350px;
+    max-width: 450px; /* ここを大きくする */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -422,7 +478,7 @@ body {
 
 .index-service-item img {
     width: 100%;
-    height: 220px;
+    height: 300px; /* ここを大きくする */
     object-fit: cover;
 }
 
@@ -431,16 +487,23 @@ body {
 }
 
 .section-title{
-    font-size: 2.8em;
+    font-size: 4em;
     font-weight: bold;
     margin-bottom: 30px;
-    color: var(--secondary-color-dark);
+    color: var(--text-color-light);
+}
+
+.service-subtitle{
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--text-color-light);
 }
 
 .index-service-item__title {
-    font-size: 1.5em;
+    font-size: 2.2em;
     font-weight: bold;
-    color: var(--secondary-color-dark);
+    color: var(--text-color-light);
     margin-bottom: 10px;
 }
 
@@ -475,8 +538,9 @@ body {
 
 .index-service-item__link {
     display: inline-block;
-    background-color: var(--primary-color-dark);
+    background-color: transparent;
     color: var(--text-color-light);
+    border: 1px solid white;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
@@ -490,16 +554,15 @@ body {
 
 .index-greeting-section {
     padding: 80px 5%;
-    background-color: var(--primary-color-light);
+    background-color: var(--primary-color-gray);
     color: var(--text-color-dark);
     text-align: center;
 }
 
 .index-greeting-section h2 {
-    font-size: 2.8em;
+    font-size: 4em;
     font-weight: bold;
     margin-bottom: 30px;
-    color: var(--secondary-color-dark);
 }
 
 /* --- LP page specific styles (aaa.html, bbb.html, ccc.html) --- */
@@ -628,87 +691,6 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-
-/* --- Flow Section (index.html) --- */
-.index-flow-section {
-    padding: 80px 5%;
-    text-align: center;
-    background-color: var(--primary-color-light);
-    color: var(--text-color-dark);
-    position: relative;
-    overflow: hidden;
-}
-
-.index-flow-section h2 {
-    font-size: 2.8em;
-    font-weight: bold;
-    margin-bottom: 50px;
-    color: var(--secondary-color-dark);
-}
-
-.flow-steps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.flow-step {
-    background-color: var(--text-color-light);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px var(--shadow-color);
-    flex: 1;
-    min-width: 280px;
-    max-width: 300px;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.flow-step:hover {
-    transform: translateY(-10px);
-}
-
-.flow-step h3 {
-    font-size: 1.5em;
-    color: var(--secondary-color-dark);
-    margin-bottom: 15px;
-    position: relative;
-    padding-left: 30px; /* Space for number icon */
-}
-
-.flow-step h3::before {
-    content: attr(data-step); /* Use data attribute for step number */
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--primary-color-dark);
-    color: var(--text-color-light);
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8em;
-    font-weight: bold;
-}
-
-.flow-step:nth-child(1) h3::before { content: '1'; }
-.flow-step:nth-child(2) h3::before { content: '2'; }
-.flow-step:nth-child(3) h3::before { content: '3'; }
-.flow-step:nth-child(4) h3::before { content: '4'; }
-.flow-step:nth-child(5) h3::before { content: '5'; }
-
-.flow-step p {
-    font-size: 0.95em;
-    line-height: 1.6;
-    color: var(--text-color-dark);
 }
 
 /* Q&Aセクションの背景色とタイトルを修正 */
@@ -1274,8 +1256,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    max-width: 1200px; /* 900pxから1200pxに拡張 */
+    width: 100%;
+    max-width: 1500px;
     }
 
     .fv-main-title-animated {
@@ -1285,6 +1267,11 @@ body {
 
     .fv-sub-tagline-animated {
         font-size: 2em;
+    }
+
+    .fv-sub-tagline-animated .line-3 {
+    font-size: 0.1em;
+    text-indent: 2em;
     }
 
     .index-services-grid {
@@ -1380,7 +1367,6 @@ body {
 
     .index-services-section,
     .index-greeting-section,
-    .index-flow-section,
     .lp-section,
     .access-section,
     .greeting-section,
@@ -1390,9 +1376,337 @@ body {
         padding-left: 3%;
         padding-right: 3%;
     }
+}
 
-    .flow-steps {
+.index-services-section {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    color: white;
+}
+
+.index-services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/sindansi.jpg'), url('img/dejima.jpg'), url('img/consal.jpg');
+    background-size: 33.333% 100%, 33.333% 100%, 33.333% 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-position: left, center, right;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+.index-services-section .section-title,
+.index-services-section .index-services-grid {
+    position: relative;
+    z-index: 2;
+}
+
+.index-services-section__container {
+    position: relative;
+    z-index: 2;
+}
+
+/* 診断士サービスセクション */
+.index-greeting-section:nth-of-type(3) {
+    background-image: url('img/sindansi.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* テキストを白くして読みやすくする */
+    text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 60px 20px;
+}
+
+/* デジタルマーケティングセクション */
+.index-greeting-section:nth-of-type(4) {
+    background-image: url('img/dejima.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* テキストを白くして読みやすくする */
+    text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 60px 20px;
+}
+
+/* コンサルティングセクション */
+.index-greeting-section:nth-of-type(5) {
+    background-image: url('img/consal.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* テキストを白くして読みやすくする */
+    text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 60px 20px;
+}
+
+/* 全体の文字を見やすくするためのスタイル */
+.index-greeting-section h2,
+.index-greeting-section h3,
+.index-greeting-section p,
+.index-greeting-section span {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 文字の影を追加 */
+    color: white !important; /* 文字を白色に固定 */
+}
+
+/* リンク（詳細はこちら）の色と影 */
+.index-service-item__link {
+    background-color: rgba(255, 255, 255, 0.2); /* 背景を半透明の白にする */
+    border: 1px solid white; /* ボーダーを白にする */
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--secondary-color-light);
+}
+
+/* 背景画像セクションの共通スタイル */
+.index-greeting-section:nth-of-type(5),
+.index-greeting-section:nth-of-type(3),
+.index-greeting-section:nth-of-type(4) {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1; /* コンテンツを前面に */
+}
+
+/* 各セクションの背景画像にオーバーレイを追加 */
+.index-greeting-section:nth-of-type(5)::before,
+.index-greeting-section:nth-of-type(3)::before,
+.index-greeting-section:nth-of-type(4)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 黒色の半透明オーバーレイ */
+    z-index: -1; /* 背景画像の直前に配置 */
+}
+
+/* 「株式会社KAIBYAKUとは？」セクション */
+section.index-greeting-section:nth-of-type(4) h2,
+section.index-greeting-section:nth-of-type(4) h3 {
+    color: #689F38;
+}
+
+section.index-greeting-section:nth-of-type(4) p,
+section.index-greeting-section:nth-of-type(4) span {
+    color: black;
+}
+
+/* 「理念・ビジョン」セクション */
+section.index-greeting-section:nth-of-type(5) h2,
+section.index-greeting-section:nth-of-type(5) h3 {
+    color: #689F38;
+}
+
+section.index-greeting-section:nth-of-type(5) p,
+section.index-greeting-section:nth-of-type(5) span {
+    color: black;
+}
+
+/* 「私たちの強み」セクション */
+section.index-greeting-section:nth-of-type(6) h2,
+section.index-greeting-section:nth-of-type(6) h3 {
+    color: #689F38;
+}
+
+section.index-greeting-section:nth-of-type(6) p,
+section.index-greeting-section:nth-of-type(6) span {
+    color: black;
+}
+
+/* 「事例」セクション */
+section.index-greeting-section:nth-of-type(7) h2,
+section.index-greeting-section:nth-of-type(7) h3 {
+    color: #689F38;
+}
+
+section.index-greeting-section:nth-of-type(7) p,
+section.index-greeting-section:nth-of-type(7) span {
+    color: black;
+}
+
+/* 「代表挨拶」セクション */
+section.index-greeting-section:nth-of-type(8) h2,
+section.index-greeting-section:nth-of-type(8) h3 {
+    color: #689F38;
+}
+
+section.index-greeting-section:nth-of-type(8) p,
+section.index-greeting-section:nth-of-type(8) span {
+    color: black;
+}
+
+/* 「Q&A」セクション */
+.index-faq-section p {
+    color: black;
+}
+
+.index-faq-section span {
+    color: #689F38;
+}
+
+/* 契約の流れセクションのスタイル */
+.index-flow-section {
+    background-color: var(--primary-color-gray);
+    padding: 4rem 1rem;
+}
+
+.index-flow-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.index-flow-section .flow-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.index-flow-section .flow-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* アイテムの高さを揃える */
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.index-flow-section .flow-item {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    text-align: center;
+}
+
+/* 図形（四角形）のスタイル */
+.index-flow-section .flow-box {
+    border: 2px solid var(--secondary-color-dark);
+    padding: 1.5rem 1rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--text-color-light);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.index-flow-section .flow-box h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+/* 矢印のスタイル */
+.index-flow-section .flow-arrow {
+    width: 2rem;
+    height: 6rem; /* 矢印のコンテナを縦長に */
+    background: transparent;
+    position: relative;
+    align-self: center;
+}
+
+.index-flow-section .flow-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent; /* 矢印のサイズを大きく */
+    border-bottom: 20px solid transparent; /* 矢印のサイズを大きく */
+    border-left: 25px solid var(--secondary-color-dark); /* 矢印のサイズを大きく */
+}
+
+/* 2行目の説明部分のスタイル */
+.index-flow-section .flow-row--descriptions {
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.index-flow-section .flow-description {
+    position: relative;
+    padding-left: 35px; /* 番号の分のスペースを確保 */
+}
+
+.index-flow-section .flow-description p {
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .index-flow-section .flow-row {
         flex-direction: column;
-        align-items: center;
+        gap: 2rem;
     }
+
+    .index-flow-section .flow-arrow {
+        width: 1.5rem;
+        height: 2rem;
+        transform: rotate(90deg);
+    }
+}
+
+/* ホバー時のアニメーション */
+.index-flow-section .flow-item:hover {
+    transform: translateY(-5px);
+}
+
+
+.index-flow-section .flow-box,
+.index-flow-section .flow-description {
+    border: 2px solid var(--secondary-color-dark);
+    padding: 1.5rem 1rem;
+    min-height: 120px; /* 図形の最小高さを統一 */
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--text-color-light);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    width: 100%; /* 親要素に合わせる */
+    transition: transform 0.3s ease-in-out; /* ホバーアニメーション */
+}
+
+/* ホバー時のアニメーション */
+.index-flow-section .flow-box:hover,
+.index-flow-section .flow-description:hover {
+    transform: scale(1.15);
+}
+
+.flow-step-new {
+    background-color: var(--secondary-color-dark);
+    color: var(--text-color-light);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.index-flow-section .flow-box {
+    position: relative;
+    overflow: visible;
 }
