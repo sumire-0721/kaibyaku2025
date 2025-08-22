@@ -363,12 +363,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Common Header & Hamburger Menu ---
     const hamburgerIcon = document.querySelector('.hamburger-menu-icon');
     const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const hamburgerClose = document.getElementById('hamburger-close');
+    // const hamburgerClose = document.getElementById('hamburger-close');
     const hamburgerLangToggle = document.getElementById('lang-toggle');
     const businessContentLink = document.getElementById('business-content-link');
     const accordionMenu = document.getElementById('accordion-menu');
+    const digitalMarketingLink = document.getElementById('digital-marketing-link');
+    const accordionMenuDigital = document.getElementById('accordion-menu-digital');
+    const consultingLink = document.getElementById('consulting-link');
+    const accordionMenuConsulting = document.getElementById('accordion-menu-consulting');
+    const toggleAccordion = (link, menu) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            // 他のアコーディオンメニューを閉じる
+            if (menu.id !== 'accordion-menu' && accordionMenu.classList.contains('open')) {
+                accordionMenu.classList.remove('open');
+            }
+            if (menu.id !== 'accordion-menu-digital' && accordionMenuDigital.classList.contains('open')) {
+                accordionMenuDigital.classList.remove('open');
+            }
+            if (menu.id !== 'accordion-menu-consulting' && accordionMenuConsulting.classList.contains('open')) {
+                accordionMenuConsulting.classList.remove('open');
+            }
+            // クリックしたメニューを開閉する
+            menu.classList.toggle('open');
+        });
+    };
 
-    if (hamburgerIcon && hamburgerMenu && hamburgerClose) {
+    if (hamburgerIcon && hamburgerMenu) {
         const toggleHamburgerMenu = () => {
             hamburgerIcon.classList.toggle('active');
             hamburgerMenu.classList.toggle('active');
@@ -377,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         hamburgerIcon.addEventListener('click', toggleHamburgerMenu);
-        hamburgerClose.addEventListener('click', toggleHamburgerMenu);
+        // hamburgerClose.addEventListener('click', toggleHamburgerMenu);
 
         // Close hamburger menu when a link is clicked
         hamburgerMenu.querySelectorAll('ul li a').forEach(link => {
@@ -415,6 +436,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // No, the prompt says when this button is clicked, it opens, and when clicked again, it closes
             // So we don't close the main menu.
         });
+    }
+
+    if (digitalMarketingLink && accordionMenuDigital) {
+        toggleAccordion(digitalMarketingLink, accordionMenuDigital);
+    }
+
+    if (consultingLink && accordionMenuConsulting) {
+        toggleAccordion(consultingLink, accordionMenuConsulting);
     }
 
     // --- Fixed Contact Button ---
