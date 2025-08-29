@@ -114,7 +114,7 @@ body {
 .hamburger-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* Hidden by default */
+    right: -60%;
     width: 60%;
     height: 100%;
     background-color: rgba(104, 159, 56, 0.92);
@@ -124,10 +124,42 @@ body {
     align-items: center;
     transition: right 0.4s ease-in-out;
     z-index: 999;
+    padding: 20px;
 }
 
 .hamburger-menu.active {
     right: 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.menu-column {
+    flex-direction: column;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: calc(33.333% - 27px);
+}
+
+.menu-column li {
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.hamburger-menu.active .menu-column li {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hamburger-menu ul {
@@ -384,106 +416,10 @@ body {
     white-space: nowrap;
 }
 
-.index-services-section {
-    padding: 80px 5%;
-    background-color: var(--background-light);
-    text-align: center;
-}
-
-.index-services-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap; /* レスポンシブ対応 */
-}
-
-.service-card {
-    flex-basis: calc(33.333% - 14px); /* 3分割 */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--text-color-light); /* 文字色を白に */
-    text-align: center;
-    padding: 50px 20px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-color) 0px 5px 15px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* オーバーレイを追加して文字を見やすくする */
-    transition: background-color 0.3s ease-in-out;
-    z-index: 1;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-}
-
-.service-card:hover::before {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.service-card__content {
-    position: relative;
-    z-index: 2;
-}
-
-.service-card__title {
-    font-family: 'Shippori Mincho B1', serif;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.service-card__text {
-    font-size: 1em;
-    margin-bottom: 20px;
-}
-
-.service-card__link {
-    display: inline-block;
-    background-color: var(--primary-color-dark);
-    color: var(--text-color-dark);
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.service-card__link:hover {
-    background-color: var(--primary-color-light);
-}
-
-.index-service-item {
-    display: flex; /* Flexboxを有効にする */
-    flex-direction: column; /* 子要素を縦に並べる */
-    flex: 1;
-    min-width: 280px;
-    max-width: 450px; /* ここを大きくする */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.index-service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
 .index-service-item img {
     width: 100%;
     height: 300px; /* ここを大きくする */
     object-fit: cover;
-}
-
-.index-service-item__content {
-    padding: 25px;
 }
 
 .section-title{
@@ -498,13 +434,6 @@ body {
     font-weight: bold;
     margin-bottom: 30px;
     color: var(--text-color-light);
-}
-
-.index-service-item__title {
-    font-size: 2.2em;
-    font-weight: bold;
-    color: var(--text-color-light);
-    margin-bottom: 10px;
 }
 
 /* リンクをブロック要素にし、flexboxで子要素を縦に並べる */
@@ -523,17 +452,6 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
-}
-
-.index-service-item__content {
-    padding: 25px;
-}
-
-.index-service-item__text {
-    font-size: 0.95em;
-    color: var(--text-color-dark);
-    margin-bottom: 20px;
-    line-height: 1.5;
 }
 
 .index-service-item__link {
@@ -1274,24 +1192,6 @@ body {
     text-indent: 2em;
     }
 
-    .index-services-grid {
-        display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    }
-
-    .index-service-item {
-        display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 280px;
-    max-width: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
     .index-greeting-section h2 {
         font-size: 2em;
     }
@@ -1376,16 +1276,6 @@ body {
         padding-left: 3%;
         padding-right: 3%;
     }
-}
-
-.index-services-section {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    text-align: center;
-    color: white;
 }
 
 .index-services-section::before {
@@ -1709,4 +1599,195 @@ section.index-greeting-section:nth-of-type(8) span {
 .index-flow-section .flow-box {
     position: relative;
     overflow: visible;
+}
+
+.hamburger-menu.active .menu-column li:nth-child(1) { transition-delay: 0.1s; }
+.hamburger-menu.active .menu-column li:nth-child(2) { transition-delay: 0.15s; }
+.hamburger-menu.active .menu-column li:nth-child(3) { transition-delay: 0.2s; }
+.hamburger-menu.active .menu-column li:nth-child(4) { transition-delay: 0.25s; }
+.hamburger-menu.active .menu-column li:nth-child(5) { transition-delay: 0.3s; }
+
+.hamburger-menu ul li a {
+    color: var(--text-color-light);
+    font-size: 1.2em; /* フォントサイズを小さく変更 */
+    font-weight: bold;
+    padding: 10px 0;
+    display: block;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* テキストの改行を防ぎ、一行に収める */
+}
+
+/* 不要なアコーディオンメニューのスタイルを削除 */
+.accordion-menu,
+.accordion-menu.open,
+.accordion-menu li,
+.accordion-menu li a {
+    display: none !important;
+}
+
+/* サービスセクション修正 */
+/* -------------------------------------- */
+/* サービスセクション（多重レイヤー構造） */
+/* -------------------------------------- */
+.index-services-section {
+    position: relative;
+    padding: 80px 5%;
+    overflow: hidden;
+    /* セクションのパディングに合わせて背景画像を配置 */
+}
+
+/* 背景画像レイヤー */
+.index-services-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/1.png'), url('img/2.png');
+    background-size: 50% 100%, 50% 100%;
+    background-position: left top, right top;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* 黒い図形レイヤー */
+.index-services-gray-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 中央配置 */
+    width: 90%; /* セクション全体の幅の90% */
+    height: 85%; /* セクション全体の高さの80% */
+    background-color: #78a96a;
+    opacity: 0.8;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* コンテンツレイヤー */
+.index-services-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color-light); /* 文字色を白に変更 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字に影を追加 */
+    margin-bottom: 40px;
+}
+
+.index-services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.service-wrapper {
+    flex-basis: calc(50% - 20px);
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-wrapper__title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--text-color-light); /* 文字色を白に変更 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字に影を追加 */
+    margin-bottom: 20px;
+}
+
+.service-card {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.service-card:hover::before {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.service-card__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color-dark);
+}
+
+.service-card__text {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.service-card__link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary-color-dark);
+    color: var(--text-color-light);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.service-card__link:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .index-services-bg {
+        background-size: 100% 50%, 100% 50%;
+        background-position: top, bottom;
+    }
+    .index-services-gray-overlay {
+        width: 95%;
+        height: 90%;
+    }
+    .index-services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
 }
