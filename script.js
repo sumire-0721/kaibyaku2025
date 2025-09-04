@@ -611,3 +611,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial translation application
     applyTranslation();
 });
+
+// --- Text Animation for line-1 and line-2 ---
+function animateFuzzyText(elementSelector, initialDelay = 0, charDelay = 150) {
+    const element = document.querySelector(elementSelector);
+    if (!element) return;
+
+    const text = element.textContent;
+    element.textContent = ''; // テキストを一旦消去
+
+    let delay = initialDelay;
+
+    for (const char of text) {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.classList.add('char-span');
+        element.appendChild(span);
+
+        // 各文字に順番にvisibleクラスを追加
+        setTimeout(() => {
+            span.classList.add('visible');
+        }, delay);
+
+        delay += charDelay;
+    }
+}
+
+// アニメーションの実行
+animateFuzzyText('.fv-sub-tagline-animated .line-1', 1000); // 1秒後に開始
+animateFuzzyText('.fv-sub-tagline-animated .line-2', 1800); // 1.8秒後に開始
+
+// --- end of Text Animation ---
